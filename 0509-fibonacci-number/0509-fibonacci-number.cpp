@@ -1,19 +1,15 @@
 class Solution {
 public:
     int fib(int n) {
-        int a=0;
-        int b=1;
-
-        if(n==0){
-            return a;
-        }
-        if(n==1){
-            return b;
-        }
-        else
+        if(n==0)
         {
-            int ans = fib(n-1)+fib(n-2);
-            return ans;
+            return 0;
         }
+        if(n==1)
+        {
+            return 1;
+        }
+        int ans=fib(n-1)+fib(n-2);
+        return ans;
     }
 };
