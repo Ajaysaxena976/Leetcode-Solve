@@ -1,19 +1,22 @@
 class Solution {
 public:
-    int reverse(int n) {
-     
-    
-        int digit,ans=0;
-        while(n!=0)
+    int reverse(int x) {
+       long long int ans=0;
+        int digit=0;
+        while(x!=0)
         {
-            if ( (ans> INT_MAX/10) | (ans < INT_MIN/10) ){
-                return 0;
+            digit=x%10;
+            if (ans > INT_MAX / 10 || (ans == INT_MAX / 10 && digit > INT_MAX % 10)) {
+                return 0; // overflow
             }
-            digit=n%10;
-            ans=10*ans+digit;
-            n=n/10;
+            if (ans < INT_MIN / 10 || (ans == INT_MIN / 10 && digit < INT_MIN % 10)) {
+                return 0; // underflow
+            }
+           ans= 10*ans+digit;
+            x=x/10;
         }
-        return ans;
-    }
+       
+        return (int)ans;
+        }
     
 };
