@@ -1,28 +1,25 @@
 class Solution {
 public:
     int bitwiseComplement(int n) {
-        int m=n;
-           if(m==0){
+        int i=0;
+        int fmask=n;
+        int temp=~n;
+        cout<<endl<<"number comliment is"<<temp;
+        int mask=0;
+        int count=1;
+        if(n==0)
+        {
             return 1;
         }
-        int comp=~m;
-       
-        int ans=0;
-        int i=0;
-        int bit;
-        int mask=0;
-        while(m!=0){
-            mask =mask << 1;
-             mask = mask | 1;
-             m=m>>1;
+        while(fmask!=0){
+            mask=mask<<1;
+            mask = mask | 1;
+            
+            cout<<endl<<"inside loop mask is"<<mask;
+            fmask=fmask>>1;
         }
-      
-        int var;
-        
-        var=comp & mask;
-        
-         return  var;
-        
-    };
-    
+        cout<<endl<<"mask is " <<mask;
+        temp=temp & mask;
+      return temp;
+    }
 };
